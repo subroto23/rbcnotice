@@ -1,0 +1,186 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 20px;
+    color:black;
+    font-family: 'Bangla', 'BenSen', Arial, sans-serif;
+    font-weight: bold;  
+}
+.headertopAdmin{
+    background-color: #5883F4;
+    padding:30px 0px 50px 0px;
+    background-image: url(../img/stacked-waves-haikei.svg);
+}
+.hedding{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+.hedding h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:30px;
+    font-weight: bold;
+    text-align: center;
+    color:white;
+    -webkit-text-stroke: 1px rgb(3, 0, 102);
+    text-shadow: -1px -1px black;
+    margin-bottom: 20px;
+}
+.address{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    color:white;
+    font-size:18px;
+    -webkit-text-stroke: 0.2px black;
+}
+.address h6{
+    color:black;
+}
+.secoundadminpage{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.secoundContainer{
+    background-color: #dfe6e9;
+    outline: 0.3px solid black;
+    padding:20px;
+    max-width: 400px;
+}
+textarea{
+    font-size:20px;
+}
+.textHedding h4{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+label{
+    font-size: 18px;
+    font-weight: bold;
+}
+.subjectDiv,.detailsDiv,.summary{
+    vertical-align:top;
+}
+.subjectDiv textarea,.detailsDiv textarea,.summary textarea{
+    width:100%;
+}
+#submitbtn{
+    width:100%;
+    display:inline-block;
+    padding: 2px;
+    margin-top:3vh;
+    border-radius: 60px;
+}
+select{
+    width:100%;
+    padding:3vh 0px;
+    text-align: center;
+    font-size: 25px;
+}
+select option{
+    font-size: 20px;
+    color:red;
+}
+.animate__animated.animate__fadeInUp{
+    animation-duration: 5s;
+    animation-iteration-count: 2;
+}
+.displayTop{
+    display:none;
+}
+.displaybody{
+    margin:50px auto;
+    padding:10px 10px;
+    width:800px;
+    border:3px solid #5883F4;
+    outline: 1px solid rgb(12, 12, 84);
+}
+.hedingdisplay{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 6px;
+    text-align: justify;
+    background-color: #5883F4;
+}
+.displayleft h1{
+    line-height: 13px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.displayRight p{
+    color:rgb(0, 0, 0);
+    text-shadow: -1px -1px black;
+}
+.vl {
+    border-left: 2px solid white;
+    height: 70px;
+  }
+  .dateandNobody{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    background-color: aqua;
+    padding:5px;
+    font-size:20px;
+
+  }
+  .noticeText{
+    margin:40px 0px 20px 0px;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .noticeText h1{
+    font-size: 50px;
+    font-weight: bolder;
+  }
+  .subjectbody{
+    padding-left: 40px;
+    display: flex;
+    flex-direction: row;
+    text-justify: auto;
+    text-align: justify;
+  }
+  .Noticebody{
+    margin-top:30px;
+    padding:10px;
+  }
+  .Noticebody,.summary p{
+    font-size:25px;
+    text-align: justify;
+  }
+  .summary{
+    margin-top:30px;
+  }
+.summary::first-letter {
+    margin-left:100px;
+}
+.signaturebody{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 100px;
+}
+.sectrary,.presedient{
+    line-height: 0.5px;
+}
+.signature,.sigDetails{
+    margin-top: -20px;
+}
+.sigDetails p{
+    margin-left:15px;
+}
+.footer{
+    font-size: 25px;
+    text-shadow: -2px -2px black;
+    padding:3px;
+    background-color: #5883F4; ;
+    text-align: center;
+    color:white;
+}

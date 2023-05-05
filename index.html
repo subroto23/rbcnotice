@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Anek Bangla' rel='stylesheet'>
+    <link href="https://fonts.maateen.me/bangla/font.css" rel="stylesheet">
+    <link href="https://fonts.maateen.me/bensen/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Creating Notice</title>
+</head>
+<body>
+    <section id="adminSection">
+        <div class="headertopAdmin">
+            <div class="container">
+                <div class="hedding">
+                    <h1>Rupashi Bangla Club</h1>
+                </div>
+                <!-- <div class="address">
+                    <h6>Kadirdi,Boalmari,Faridpur</h6>
+                </div> -->
+                <div class="secoundadminpage">
+                    <div class="secoundContainer">
+                        <div class="textHedding">
+                            <h4 class="animate__animated animate__fadeInUp">বিজ্ঞপ্তি প্রদান করুনঃ</h4>
+                            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                            <form action="" class="userfrom">
+                                <div class="subjectDiv mb-1">
+                                    <label for="subject">#নোটিশের বিষয় লিখুনঃ</label>
+                                    <textarea placeholder="বিষয় লিখুন..." name="subject" id="subject" cols="10" rows="2" class="p-2"></textarea>
+                                </div>
+                                <div class="detailsDiv">
+                                    <label for="noticedetails">#নোটিশ লিখুনঃ</label>
+                                    <textarea placeholder="নোটিশ লিখুন......" name="details" id="noticedetails" cols="20" rows="4" class="p-2"></textarea>
+                                </div>
+    
+                                <div class="summary">
+                                    <label for="summary">#নোটিশ সারমর্ম লিখুনঃ</label>
+                                    <textarea placeholder="নোটিশ লিখুন......" name="details" id="noticesummary" cols="10" rows="2" class="p-2"></textarea>
+                                </div>
+    
+                                <div class="submitbutton">
+                                    <input id="submitbtn" onclick="buttoncal()" type="button" value="ছবি তৈরি করুন" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+<!-- ডিস্প্লে সেকশান -->
+    <section>
+        <div class="displayTop">
+            <div class="container displaybody" id="displayImg">
+                <div class="hedingdisplay">
+                    <div class="displayLogo">
+                        <img src="./img/RBC Logo.jpg" alt="Logo" width="100px" height="100px">
+                    </div>
+                    <div class="displayleft">
+                        <h1 class="lead" style="font-size:30px">রূপসী বাংলা ক্লাব</h1>
+                        <h1 class="lead">Rupashi Bangla Club</h1>
+                        <h1 class="lead">Ein:2015</h1>
+                    </div>
+                    <div class="vl"></div>
+                    <div class="displayRight">
+                        <p class="display-5 lead">কাদিরদী,বোয়ালমারী,ফরিদপুর</p>
+                        <p class="display-5 lead">kadirdi,Boalmari,Faridpur</p>
+                        <p class="display-5 lead">rupashi.bangla.club@gmail.com</p>
+                    </div>
+                </div>
+
+
+                <div class="dateandNobody">
+                    <div class="Nocontent">
+                        <span class="no">নংঃ </span>
+                        <span id="noValue"></span>
+                    </div>
+                    <div class="datecontent">
+                        <span class="date">তারিখঃ </span>
+                        <span id="dateValue"></span>
+                    </div>
+                </div>
+                
+                <div class="noticeText">
+                   <h1>নোটিশ</h1>
+                </div>
+
+                <div class="subjectbody">
+                    <h2 style="margin-right: 8px;font-weight: bold;">বিষয়ঃ</h2>
+                    <h2 id="subjectValue"></h2>
+                 </div>
+
+                 <div class="Noticebody">
+                    <p id="details"></p>
+                 </div>
+                 <div class="summary">
+                    <p id="summarydetails"></p>
+                 </div>
+
+                 <div class="signaturebody">
+                    <div class="sectrary">
+                        <div class="signature">
+                            <img src="./img/Monoj Signatiure.png" alt="" width="150px" height="75px">
+                            <p style="border-bottom: 2px solid black; width:180px;margin-left:-25px"></p>
+                        </div>
+                        <div class="sigDetails">
+                            <h3 style="font-weight: bold;font-size: 40px;" id="name">মনোজ  দাস</h3>
+                            <p style="margin-left: 20px;">সাধারণ-সম্পাদক</p>
+                            <p>রূপসী বাংলা ক্লাব</p>
+                        </div>
+                    </div>
+                    <div class="presedient">
+                        <div class="signature">
+                            <img src="./img/Chandon Das Signature.png" alt="" width="150px" height="75px">
+                            <p style="border-bottom: 2px solid black; width:180px;margin-left:-25px"></p>
+                        </div>
+                        <div class="sigDetails">
+                            <h3 style="font-weight: bold;font-size: 40px;" id="name">চন্দন দাস</h3>
+                            <p style="margin-left: 40px;">সভাপতি</p>
+                            <p>রূপসী বাংলা ক্লাব</p>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="footer">
+                    <p>“চলবো মোরা একসাথে,জয় করব মানবতাকে”</p>
+                 </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="./js/index.js"></script>
+</html>
