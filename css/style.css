@@ -107,7 +107,8 @@ select option{
     align-items: center;
     line-height: 6px;
     text-align: justify;
-    background-color: #5883F4;
+    background-color: ##3742fa;
+    color:white;
 }
 .displayleft h1{
     line-height: 13px;
