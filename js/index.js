@@ -12,6 +12,7 @@ function downloadimage() {
     });
 }
 //বাটন নিয়ন্তণ
+var adminSection = document.querySelector("#adminSection");
 var submitbtn = document.querySelector("#submitbtn");
 function buttoncal() {
     number();
@@ -20,7 +21,8 @@ function buttoncal() {
     noticeDetails();
     summarry();
     display();
-    downloadimage()
+    adminSection.style.display = "none";
+    downloadimage();
 }
 function display(){
     var displayTop = document.querySelector(".displayTop");
