@@ -17,6 +17,7 @@ var submitbtn = document.querySelector("#submitbtn");
 function buttoncal() {
     number();
     datecal();
+    items();
     subject();
     noticeDetails();
     summarry();
@@ -24,6 +25,13 @@ function buttoncal() {
     adminSection.style.display = "none";
     downloadimage();
 }
+//কি ধরনের নোটিশ লিখবেনঃ
+function items() {
+    var noticeCatagories  = document.querySelector("#noticeCatagories").value;
+    var items = document.querySelector("#items");
+    items.innerHTML = noticeCatagories;
+}
+
 function display(){
     var displayTop = document.querySelector(".displayTop");
     displayTop.style.display = "block";
