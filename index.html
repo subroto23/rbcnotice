@@ -2,144 +2,273 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Anek Bangla' rel='stylesheet'>
-    <link href="https://fonts.maateen.me/bangla/font.css" rel="stylesheet">
-    <link href="https://fonts.maateen.me/bensen/font.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+    <meta name="theme-color" content="#1e2a78">
+    <title>রূপসী বাংলা ক্লাব — প্যাড</title>
+
+    <!-- কালপুরুষ, Bangla, BenSen আসে fonts/ ফোল্ডার থেকে (css/style.css এ), বাকিগুলো Google Fonts থেকে -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;700&family=Hind+Siliguri:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Serif+Bengali:wght@400;700&family=Tiro+Bangla:ital@0;1&family=Baloo+Da+2:wght@400;700&family=Galada&family=Atma:wght@400;700&family=Mina:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Creating Notice</title>
 </head>
 <body>
-    <section id="adminSection">
-        <div class="headertopAdmin">
-            <div class="container">
-                <div class="hedding">
-                    <h1>Rupashi Bangla Club</h1>
-                </div>
-                <!-- <div class="address">
-                    <h6>Kadirdi,Boalmari,Faridpur</h6>
-                </div> -->
-                <div class="secoundadminpage">
-                    <div class="secoundContainer">
-                        <div class="textHedding">
-                            <h4 class="animate__animated animate__fadeInUp">বিজ্ঞপ্তি প্রদান করুনঃ</h4>
-                            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-                            <form action="" class="userfrom">
-                                 <div class="subjectDiv mb-1">
-                                    <label for="noticeName">কি ধরনের বার্তা লিখবেনঃ</label>
-                                    <textarea placeholder="নোটিশ / শোকবার্তা / অভিনন্দন" name="noticeName" id="noticeCatagories" cols="10" rows="2" class="p-2"></textarea>
-                                </div>
-                                <div class="subjectDiv mb-1">
-                                    <label for="subject">#নোটিশের বিষয় লিখুনঃ</label>
-                                    <textarea placeholder="বিষয়ঃ লিখে,লেখা শুরু করুন" name="subject" id="subject" cols="10" rows="2" class="p-2"></textarea>
-                                </div>
-                                <div class="detailsDiv">
-                                    <label for="noticedetails">#নোটিশ লিখুনঃ</label>
-                                    <textarea placeholder="নোটিশ লিখুন......" name="details" id="noticedetails" cols="20" rows="4" class="p-2"></textarea>
-                                </div>
-    
-                                <div class="summary">
-                                    <label for="summary">#নোটিশ সারমর্ম লিখুনঃ</label>
-                                    <textarea placeholder="নোটিশ লিখুন......" name="details" id="noticesummary" cols="10" rows="2" class="p-2"></textarea>
-                                </div>
-    
-                                <div class="submitbutton">
-                                    <input id="submitbtn" onclick="buttoncal()" type="button" value="ছবি তৈরি করুন" class="btn btn-primary">
-                                </div>
-                            </form>
+
+<div class="topbars">
+<!-- ============ উপরের বার ============ -->
+<header class="appbar" id="appbar">
+    <div class="brand">
+        <i class="fa-solid fa-file-pen"></i>
+        <span class="brand-full">রূপসী বাংলা ক্লাব — প্যাড</span>
+        <span class="brand-short">আরবিসি প্যাড</span>
+        <span id="saveState" class="savestate"></span>
+    </div>
+
+    <div class="zoombox" title="জুম — মোবাইলে দুই আঙুলে চিমটি দিয়েও করা যায়">
+        <button class="btn icon" id="btnZoomOut" aria-label="ছোট করুন"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+        <button class="btn zoomval" id="btnZoomFit" title="স্ক্রিনে ফিট করুন">১০০%</button>
+        <button class="btn icon" id="btnZoomIn" aria-label="বড় করুন"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+    </div>
+
+    <button class="btn primary only-mobile" data-act="png" aria-label="ছবি ডাউনলোড"><i class="fa-solid fa-download"></i> ছবি</button>
+    <button class="btn icon only-mobile" id="btnMenu" aria-label="মেনু"><i class="fa-solid fa-bars"></i></button>
+
+    <!-- মোবাইলে এটা ☰ মেনুর ভেতরে চলে যায় -->
+    <div class="appmenu" id="appmenu">
+        <div class="padinfo">
+            <label>নংঃ
+                <input id="inNo" type="text" spellcheck="false">
+            </label>
+            <button class="btn icon" id="btnNewNo" title="নতুন নম্বর তৈরি করুন" aria-label="নতুন নম্বর"><i class="fa-solid fa-rotate"></i></button>
+            <label>তারিখঃ
+                <input id="inDate" type="date">
+            </label>
+        </div>
+        <div class="actions">
+            <select id="selTemplate" class="btn" title="টেমপ্লেট বসান">
+                <option value="">টেমপ্লেট…</option>
+                <option value="notice">নোটিশ</option>
+                <option value="condolence">শোকবার্তা</option>
+                <option value="congrats">অভিনন্দন</option>
+                <option value="blank">ফাঁকা পাতা</option>
+            </select>
+            <button class="btn" id="btnAddPage" title="একই প্যাডে নতুন পাতা"><i class="fa-solid fa-file-circle-plus"></i> নতুন পাতা</button>
+            <button class="btn" id="btnReset" title="সব মুছে নতুন করে শুরু"><i class="fa-solid fa-broom"></i> নতুন করে</button>
+            <button class="btn" data-act="print" title="প্রিন্ট / PDF হিসেবে সেভ"><i class="fa-solid fa-print"></i> প্রিন্ট</button>
+            <button class="btn" data-act="pdf"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+            <button class="btn primary" data-act="png"><i class="fa-solid fa-image"></i> ছবি ডাউনলোড</button>
+        </div>
+    </div>
+</header>
+
+<!-- ============ ফরম্যাটিং টুলবার (মোবাইলে নিচে, ট্যাব আকারে) ============ -->
+<nav class="toolbar" id="toolbar" data-tab="text">
+    <div class="tabs">
+        <button data-cmd="undo" class="tab-icon" aria-label="আগের অবস্থায়"><i class="fa-solid fa-rotate-left"></i></button>
+        <button data-cmd="redo" class="tab-icon" aria-label="আবার করুন"><i class="fa-solid fa-rotate-right"></i></button>
+        <button class="tab" data-tabbtn="text"><i class="fa-solid fa-font"></i> লেখা</button>
+        <button class="tab" data-tabbtn="para"><i class="fa-solid fa-align-left"></i> সাজানো</button>
+        <button class="tab" data-tabbtn="insert"><i class="fa-solid fa-circle-plus"></i> যোগ</button>
+        <button class="tab-icon" id="btnKbd" aria-label="কীবোর্ড বন্ধ করুন"><i class="fa-solid fa-keyboard"></i></button>
+    </div>
+
+    <div class="tool-groups">
+        <div class="tgroup desk-only">
+            <button data-cmd="undo" title="আগের অবস্থায় (Ctrl+Z)"><i class="fa-solid fa-rotate-left"></i></button>
+            <button data-cmd="redo" title="আবার করুন (Ctrl+Y)"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+
+        <div class="tgroup" data-group="text">
+            <select id="selBlock" title="লেখার ধরন">
+                <option value="p">সাধারণ লেখা</option>
+                <option value="h1">বড় শিরোনাম</option>
+                <option value="h2">মাঝারি শিরোনাম</option>
+                <option value="h3">ছোট শিরোনাম</option>
+                <option value="blockquote">উদ্ধৃতি</option>
+            </select>
+            <select id="selFont" title="ফন্ট">
+                <option value="Kalpurush" style="font-family:Kalpurush">কালপুরুষ (ডিফল্ট)</option>
+                <option value="Bangla" style="font-family:Bangla">Bangla</option>
+                <option value="BenSen" style="font-family:BenSen">BenSen</option>
+                <option value="Hind Siliguri" style="font-family:'Hind Siliguri'">হিন্দ শিলিগুড়ি</option>
+                <option value="Noto Sans Bengali" style="font-family:'Noto Sans Bengali'">নোটো স্যান্স</option>
+                <option value="Noto Serif Bengali" style="font-family:'Noto Serif Bengali'">নোটো সেরিফ</option>
+                <option value="Tiro Bangla" style="font-family:'Tiro Bangla'">তিরো বাংলা</option>
+                <option value="Anek Bangla" style="font-family:'Anek Bangla'">অনেক বাংলা</option>
+                <option value="Baloo Da 2" style="font-family:'Baloo Da 2'">বালু দা</option>
+                <option value="Atma" style="font-family:Atma">আত্মা</option>
+                <option value="Mina" style="font-family:Mina">মিনা</option>
+                <option value="Galada" style="font-family:Galada">গালাদা</option>
+                <option value="Arial" style="font-family:Arial">Arial</option>
+                <option value="Times New Roman" style="font-family:'Times New Roman'">Times New Roman</option>
+            </select>
+            <select id="selSize" title="লেখার সাইজ">
+                <option value="">সাইজ</option>
+            </select>
+        </div>
+
+        <div class="tgroup tg-basic" data-group="text">
+            <button data-cmd="bold" title="মোটা (Ctrl+B)" aria-label="মোটা"><i class="fa-solid fa-bold"></i></button>
+            <button data-cmd="italic" title="বাঁকা (Ctrl+I)" aria-label="বাঁকা"><i class="fa-solid fa-italic"></i></button>
+            <button data-cmd="underline" title="নিচে দাগ (Ctrl+U)" aria-label="নিচে দাগ"><i class="fa-solid fa-underline"></i></button>
+            <button data-cmd="strikeThrough" title="কাটা দাগ" aria-label="কাটা দাগ"><i class="fa-solid fa-strikethrough"></i></button>
+            <button id="btnSizeDown" title="লেখা ছোট" aria-label="লেখা ছোট"><span class="aa">A<sup>−</sup></span></button>
+            <button id="btnSizeUp" title="লেখা বড়" aria-label="লেখা বড়"><span class="aa big">A<sup>+</sup></span></button>
+            <label class="colorbtn" title="লেখার রং">
+                <i class="fa-solid fa-font"></i>
+                <span class="swatch" id="swFore" style="background:#c0392b"></span>
+                <input type="color" id="inFore" value="#c0392b" aria-label="লেখার রং">
+            </label>
+            <label class="colorbtn" title="লেখার পেছনের রং (হাইলাইট)">
+                <i class="fa-solid fa-highlighter"></i>
+                <span class="swatch" id="swBack" style="background:#fff200"></span>
+                <input type="color" id="inBack" value="#fff200" aria-label="হাইলাইট রং">
+            </label>
+            <button data-cmd="removeFormat" title="ফরম্যাট মুছুন" aria-label="ফরম্যাট মুছুন"><i class="fa-solid fa-eraser"></i></button>
+        </div>
+
+        <div class="tgroup" data-group="para">
+            <button data-cmd="justifyLeft" title="বামে" aria-label="বামে"><i class="fa-solid fa-align-left"></i></button>
+            <button data-cmd="justifyCenter" title="মাঝে" aria-label="মাঝে"><i class="fa-solid fa-align-center"></i></button>
+            <button data-cmd="justifyRight" title="ডানে" aria-label="ডানে"><i class="fa-solid fa-align-right"></i></button>
+            <button data-cmd="justifyFull" title="দুই পাশে সমান" aria-label="দুই পাশে সমান"><i class="fa-solid fa-align-justify"></i></button>
+            <select id="selLine" title="লাইনের দূরত্ব">
+                <option value="">লাইন ফাঁক</option>
+                <option value="1">১.০</option>
+                <option value="1.3">১.৩</option>
+                <option value="1.6">১.৬</option>
+                <option value="1.8">১.৮</option>
+                <option value="2">২.০</option>
+                <option value="2.5">২.৫</option>
+            </select>
+        </div>
+
+        <div class="tgroup" data-group="para">
+            <button data-cmd="insertUnorderedList" title="বুলেট তালিকা" aria-label="বুলেট তালিকা"><i class="fa-solid fa-list-ul"></i></button>
+            <button data-cmd="insertOrderedList" title="নম্বর তালিকা" aria-label="নম্বর তালিকা"><i class="fa-solid fa-list-ol"></i></button>
+            <button data-cmd="outdent" title="ভেতর থেকে বাইরে" aria-label="বাইরে সরান"><i class="fa-solid fa-outdent"></i></button>
+            <button data-cmd="indent" title="ভেতরে সরান" aria-label="ভেতরে সরান"><i class="fa-solid fa-indent"></i></button>
+        </div>
+
+        <div class="tgroup" data-group="insert">
+            <button id="btnTable" title="টেবিল যোগ করুন"><i class="fa-solid fa-table"></i><span class="lbl"> টেবিল</span></button>
+            <button id="btnImage" title="লেখার মধ্যে ছবি যোগ করুন"><i class="fa-regular fa-image"></i><span class="lbl"> ছবি</span></button>
+            <button id="btnHr" title="আড়াআড়ি দাগ"><i class="fa-solid fa-minus"></i><span class="lbl"> দাগ</span></button>
+            <button id="btnSig" title="স্বাক্ষর যোগ করুন"><i class="fa-solid fa-signature"></i><span class="lbl"> স্বাক্ষর</span></button>
+        </div>
+
+        <div class="tgroup" data-group="insert">
+            <button id="btnFloatText" title="ফ্রি টেক্সট বক্স — পাতার যেকোনো জায়গায় টেনে বসান"><i class="fa-solid fa-i-cursor"></i> বক্স</button>
+            <button id="btnFloatImg" title="ফ্রি ছবি/সিল — পাতার যেকোনো জায়গায় টেনে বসান"><i class="fa-solid fa-stamp"></i> সিল/ছবি</button>
+        </div>
+    </div>
+</nav>
+</div>
+
+<!-- ============ পাতাগুলো ============ -->
+<main class="workspace" id="workspace"></main>
+
+<!-- ============ পপআপ ============ -->
+<div class="pop" id="popTable" hidden>
+    <h4>টেবিল</h4>
+    <div class="row">
+        <label>সারি <input type="number" id="inRows" min="1" max="40" value="3"></label>
+        <label>কলাম <input type="number" id="inCols" min="1" max="12" value="3"></label>
+    </div>
+    <label class="check"><input type="checkbox" id="inHead" checked> প্রথম সারি শিরোনাম</label>
+    <div class="row end">
+        <button class="btn" data-close>বাতিল</button>
+        <button class="btn primary" id="doTable">যোগ করুন</button>
+    </div>
+</div>
+
+<div class="pop" id="popSig" hidden>
+    <h4>স্বাক্ষর যোগ করুন</h4>
+    <div id="sigList"></div>
+    <div class="row end">
+        <button class="btn" data-close>বাতিল</button>
+        <button class="btn primary" id="doSig">যোগ করুন</button>
+    </div>
+</div>
+
+<div class="pop imgpop" id="popImg" hidden>
+    <div class="row">
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+        <input type="range" id="inImgW" min="5" max="100" step="1">
+        <span id="outImgW"></span>
+    </div>
+    <div class="row">
+        <button data-imgalign="left" title="বামে"><i class="fa-solid fa-align-left"></i></button>
+        <button data-imgalign="center" title="মাঝে"><i class="fa-solid fa-align-center"></i></button>
+        <button data-imgalign="right" title="ডানে"><i class="fa-solid fa-align-right"></i></button>
+        <button data-imgalign="floatLeft" title="বামে, পাশে লেখা চলবে">বামে+লেখা</button>
+        <button data-imgalign="floatRight" title="ডানে, পাশে লেখা চলবে">ডানে+লেখা</button>
+        <button data-imgalign="delete" title="ছবি মুছুন" class="danger"><i class="fa-solid fa-trash"></i></button>
+    </div>
+</div>
+
+<!-- টেবিলের ভেতরে কার্সর থাকলে টেবিলের উপরে দেখা যাবে -->
+<div class="minibar" id="tableTools" hidden>
+    <span class="mb-title"><i class="fa-solid fa-table"></i></span>
+    <button data-table="rowAfter" title="নিচে সারি যোগ"><i class="fa-solid fa-plus"></i> সারি</button>
+    <button data-table="colAfter" title="ডানে কলাম যোগ"><i class="fa-solid fa-plus"></i> কলাম</button>
+    <button data-table="rowDel" title="এই সারি মুছুন"><i class="fa-solid fa-minus"></i> সারি</button>
+    <button data-table="colDel" title="এই কলাম মুছুন"><i class="fa-solid fa-minus"></i> কলাম</button>
+    <button data-table="tableDel" title="পুরো টেবিল মুছুন" class="danger"><i class="fa-solid fa-trash"></i></button>
+</div>
+
+<input type="file" id="fileImg" accept="image/*" hidden>
+<div class="busy" id="busy" hidden><div><i class="fa-solid fa-spinner fa-spin"></i> <span>তৈরি হচ্ছে…</span></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<!-- ============ ফিক্সড প্যাড (প্রতিটি পাতায় এটাই বসবে) ============
+     প্যাডের ডিজাইন বদলাতে চাইলে শুধু এই অংশ আর css/style.css এর "PAD" অংশ বদলান। -->
+<template id="padTemplate">
+    <div class="page-wrap">
+        <div class="page-label">
+            <span class="pg-num"></span>
+            <span class="pg-warn" hidden><i class="fa-solid fa-triangle-exclamation"></i> লেখা পাতার বাইরে চলে গেছে — লেখা ছোট করুন বা নতুন পাতা নিন</span>
+            <button class="pg-del" title="এই পাতা মুছুন"><i class="fa-solid fa-trash"></i> পাতা মুছুন</button>
+        </div>
+        <div class="page-scale">
+            <div class="page">
+                <div class="pad-frame">
+                    <div class="pad-header">
+                        <div class="pad-logo"><img data-asset="logo" alt="Logo"></div>
+                        <div class="pad-name">
+                            <div class="bn">রূপসী বাংলা ক্লাব</div>
+                            <div class="en">Rupashi Bangla Club</div>
+                            <div class="en">Ein:2015</div>
+                        </div>
+                        <div class="pad-vl"></div>
+                        <div class="pad-address">
+                            <div>কাদিরদী, বোয়ালমারী, ফরিদপুর</div>
+                            <div class="en">Kadirdi, Boalmari, Faridpur</div>
+                            <div class="en">rupashi.bangla.club@gmail.com</div>
                         </div>
                     </div>
+                    <div class="pad-bar">
+                        <div>নংঃ <span class="pad-no"></span></div>
+                        <div>তারিখঃ <span class="pad-date"></span></div>
+                    </div>
+
+                    <!-- এখান থেকে নিচের অংশ পুরোপুরি ফ্রি -->
+                    <div class="pad-body">
+                        <div class="editor" contenteditable="true" spellcheck="false" data-placeholder="এখানে যা খুশি লিখুন…"></div>
+                        <div class="float-layer"></div>
+                    </div>
+
+                    <div class="pad-footer">“চলবো মোরা একসাথে, জয় করব মানবতাকে”</div>
                 </div>
             </div>
         </div>
-    </section> 
-<!-- ডিস্প্লে সেকশান -->
-    <section>
-        <div class="displayTop">
-            <div class="container displaybody" id="displayImg">
-                <div class="hedingdisplay">
-                    <div class="displayLogo">
-                        <img src="./img/RBC Logo.jpg" alt="Logo" width="100px" height="100px">
-                    </div>
-                    <div class="displayleft">
-                        <h1 class="lead" style="font-size:30px">রূপসী বাংলা ক্লাব</h1>
-                        <h1 class="lead">Rupashi Bangla Club</h1>
-                        <h1 class="lead">Ein:2015</h1>
-                    </div>
-                    <div class="vl"></div>
-                    <div class="displayRight">
-                        <p class="display-5 lead">কাদিরদী,বোয়ালমারী,ফরিদপুর</p>
-                        <p class="display-5 lead">kadirdi,Boalmari,Faridpur</p>
-                        <p class="display-5 lead">rupashi.bangla.club@gmail.com</p>
-                    </div>
-                </div>
+    </div>
+</template>
 
-
-                <div class="dateandNobody">
-                    <div class="Nocontent">
-                        <span class="no">নংঃ </span>
-                        <span id="noValue"></span>
-                    </div>
-                    <div class="datecontent">
-                        <span class="date">তারিখঃ </span>
-                        <span id="dateValue"></span>
-                    </div>
-                </div>
-                
-                <div class="noticeText">
-                   <h1 id= "items" style="text-decoration:underline"></h1>
-                </div>
-
-                <div class="subjectbody">
-<!--                     <h2 style="margin-right: 8px;font-weight: bold;"></h2> -->
-                    <h2 id="subjectValue"></h2>
-                 </div>
-
-                 <div class="Noticebody">
-                    <p id="details"></p>
-                 </div>
-                 <div class="summary">
-                    <p id="summarydetails"></p>
-                 </div>
-
-                 <div class="signaturebody">
-                    <div class="sectrary">
-                        <div class="signature">
-                            <img src="./img/Monoj Signatiure.png" alt="" width="150px" height="75px">
-                            <p style="border-bottom: 2px solid black; width:180px;margin-left:-10px"></p>
-                        </div>
-                        <div class="sigDetails">
-                            <h3 style="font-weight: bold;font-size: 30px;" id="name">মনোজ  দাস</h3>
-                            <p style="margin-left: 5px;">সাধারণ-সম্পাদক</p>
-                            <p>রূপসী বাংলা ক্লাব</p>
-                        </div>
-                    </div>
-                    <div class="presedient">
-                        <div class="signature">
-                            <img src="./img/Chandon Das Signature.png" alt="" width="150px" height="75px">
-                            <p style="border-bottom: 2px solid black; width:180px;margin-left:-25px"></p>
-                        </div>
-                        <div class="sigDetails">
-                            <h3 style="font-weight: bold;font-size: 30px;" id="name">চন্দন দাস</h3>
-                            <p style="margin-left: 40px;">সভাপতি</p>
-                            <p>রূপসী বাংলা ক্লাব</p>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="footer">
-                    <p>“চলবো মোরা একসাথে,জয় করব মানবতাকে”</p>
-                 </div>
-            </div>
-        </div>
-    </section>
-</body>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="./js/assets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="./js/index.js"></script>
+</body>
 </html>
